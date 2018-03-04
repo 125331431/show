@@ -1,1 +1,82 @@
 
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="UTF-8"> 
+	<title>Document</title>
+	<style>
+		body{
+			background-image:url(./img/background-02.png);background-repeat:no-repeat;background-size:100%
+		}
+		#div_menu{
+			position:absolute;left:70%;top:55%;
+		}
+		.title{
+			width:150px;
+		}
+		#div_title1{
+			position:absolute;left:55%;top:50%;opacity:0;fliter:alpha(opacity:0);
+		}
+		#div_title2{
+			position:absolute;left:67%;top:27%;opacity:0;fliter:alpha(opacity:0);
+		}
+	</style>
+	<script src="./js/move.js"></script>
+	<script src="./js/demo.js"></script>
+	<script>
+		window.onload=function()
+		{
+			var oDiv_me=document.getElementById('div_menu')
+			var oDiv_t1=document.getElementById('div_title1')
+			var oDiv_t2=document.getElementById('div_title2')
+			oDiv_me.onmouseover=function()
+			{
+				clearTimeout(timet1)
+				clearTimeout(timet2)
+				startMove(oDiv_t1,{opacity:100})
+				startMove(oDiv_t2,{opacity:100})
+			}
+			var timet1;
+			var timet2;
+			oDiv_me.onmouseout=function()
+			{
+				timet1=setTimeout(function()
+				{
+					oDiv_t1.style.opacity=0;
+				},1000)
+				timet2=setTimeout(function()
+				{
+					oDiv_t2.style.opacity=0;
+				},1000)
+			}
+			oDiv_t2.onmouseover=oDiv_t1.onmouseover=function()
+			{
+				clearTimeout(timet1)
+				clearTimeout(timet2)
+			}
+			oDiv_t2.onmouseout=oDiv_t1.onmouseout=function()
+			{
+				timet1=setTimeout(function()
+				{
+					oDiv_t1.style.opacity=0;
+				},1000)
+				timet2=setTimeout(function()
+				{
+					oDiv_t2.style.opacity=0;
+				},1000)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div_menu">
+		<img src="./img/welcome.png" style="width:200px;">
+	</div>
+	<div id="div_title1">
+		<a href="jianli.html" target="view_window"><img src="./img/title_jianli.png" class="title"></a>
+	</div>
+	<div id="div_title2">
+		<a href="zhanshi.html" target="view_window"><img src="./img/title_zuopin.png" class="title"></a>
+	</div>
+</body>
+</html>
