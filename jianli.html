@@ -31,6 +31,18 @@
 			var oDiv_pass=document.getElementById('div_pass')
 			oBtn.onclick=function()
 			{
+				btnClick()
+			}
+			document.onkeydown=function(ev)
+			{
+				var oEvent=ev||event
+				if(oEvent.keyCode==13)
+				{
+					btnClick()
+				}
+			}
+		function btnClick()
+			{
 				if(oTxt_pass.value=='songyanfeng0310')
 				{
 					oDiv_pass.style.display='none'
