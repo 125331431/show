@@ -20,6 +20,9 @@
 		#div_title2{
 			position:absolute;left:67%;top:27%;opacity:0;fliter:alpha(opacity:0);
 		}
+		.active{
+			fliter:alpha(opacity:50);opacity:0.5
+		}
 	</style>
 	<script src="./js/move.js"></script>
 	<script src="./js/demo.js"></script>
@@ -35,6 +38,7 @@
 				clearTimeout(timet2)
 				startMove(oDiv_t1,{opacity:100})
 				startMove(oDiv_t2,{opacity:100})
+				this.className='active'
 			}
 			var timet1;
 			var timet2;
@@ -44,6 +48,7 @@
 				{
 					oDiv_t1.style.opacity=0;
 				},1000)
+				this.className=''
 				timet2=setTimeout(function()
 				{
 					oDiv_t2.style.opacity=0;
